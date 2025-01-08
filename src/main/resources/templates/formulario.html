@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Acta</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="shortcut icon" href="../static/css/Logo impresora.png">
+</head>
+<body>
+
+    <h1>TI-F-02 COMPROMISO, ENTREGA Y DEVOLUCION EQUIPO DE COMPUTO</h1>
+
+    <div class="container">
+        <form action="#" th:action="@{/generar-acta}" method="post" onsubmit="window.location.href='/actagenerada'; return true;">
+            <div class="form-group">
+                <label for="nombreEquipo">Nombre del Equipo:</label>
+                <input type="text" id="nombreEquipo" name="nombreEquipo" th:value="${nombreEquipo}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="numeroSerie">Nro. De Serie:</label>
+                <input type="text" id="numeroSerie" name="numeroSerie" th:value="${numeroSerie}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cargo">Cargo:</label>
+                <input type="text" id="cargo" name="cargo" th:value="${cargo}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="jefeInmediato">Jefe Inmediato:</label>
+                <input type="text" id="jefeInmediato" name="jefeInmediato" th:value="${jefeInmediato}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" name="marca" th:value="${marca}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" name="modelo" th:value="${modelo}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="area">Área:</label>
+                <input type="text" id="area" name="area" th:value="${area}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="responsable">Responsable:</label>
+                <input type="text" id="responsable" name="responsable" th:value="${responsable}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="observaciones">Observaciones:</label>
+                <textarea id="observaciones" name="observaciones" th:value="${observaciones}" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="ciudad">Ciudad:</label>
+                <input type="text" id="ciudad" name="ciudad" th:value="${ciudad}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dia">Día:</label>
+                <input type="text" id="dia" name="dia" th:value="${dia}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mes">Mes:</label>
+                <input type="text" id="mes" name="mes" th:value="${mes}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="anio">Año:</label>
+                <input type="text" id="anio" name="anio" th:value="${anio}" required>
+            </div>
+
+            <button type="submit">Generar Acta</button>
+        </form>
+
+</body>
+</html>

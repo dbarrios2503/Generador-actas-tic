@@ -1,0 +1,128 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    text-align: center;
+    background-image: url("Imagen1.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0; /* Elimina margen por defecto */
+    padding: 0; /* Elimina padding por defecto */
+}
+
+h1 {
+    color: #180987;
+    font-size: 2.5rem; /* Tamaño responsivo */
+    margin-bottom: 1rem; 
+}
+
+
+p {
+    font-size: 1.8rem; /* Usa rem para mayor control de escala */
+    line-height: 1.6; /* Mejor legibilidad */
+    margin-bottom: 1.5rem; 
+}
+
+label{
+    color: #0a0a0a;
+
+}
+
+/* Enlaces */
+a {
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration: none; /* Quita subrayado */
+    padding: 10px 20px;
+    border-radius: 4px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #555;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: #5b5a5a3d;
+    width: 90%;
+    max-width: 1200px; /* Limita el ancho máximo */
+    margin: 0 auto; /* Centra la contenedor */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra ligera para dar profundidad */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Estilos de entradas y selectores */
+input[type="text"], select {
+    width: 100%; /* Se ajusta al ancho de la contenedor */
+    max-width: 500px; /* Límite de ancho para pantallas grandes */
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, select:focus {
+    border-color: #180987;
+    outline: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    body {
+        background-color: #f0f0f0; /* Cambia el fondo para pantallas pequeñas */
+    }
+
+    h1 {
+        font-size: 2rem; /* Reduce el tamaño del título */
+    }
+
+    p {
+        font-size: 1.5rem; /* Reduce el tamaño del párrafo */
+    }
+
+    .container {
+        width: 95%; /* La contenedor ocupa casi todo el ancho */
+    }
+
+    input[type="text"], select {
+        width: 100%; /* Ocupará todo el ancho del contenedor */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem; /* Reduce más el tamaño del título */
+    }
+
+    p {
+        font-size: 1.2rem; /* Reduce más el tamaño del párrafo */
+    }
+
+    input[type="text"], select {
+        font-size: 0.9rem; /* Reduce el tamaño de la letra de los inputs */
+    }
+} 
+
+/* Animaciones y transiciones */
+input[type="text"], select, a {
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:hover, select:hover {
+    border-color: #180987;
+}
+
+a:hover {
+    background-color: #555;
+}
