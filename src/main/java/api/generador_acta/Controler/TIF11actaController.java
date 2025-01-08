@@ -1,9 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package api.generador_acta.Controler;
-
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
@@ -12,9 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.ByteArrayOutputStream;
@@ -22,14 +17,15 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 @Controller
-public class ActaController {
+@RequestMapping("/tif11")
+public class TIF11actaController {
 
     @GetMapping("/")
     public String mostrarFormulario() {
-        return "formulario"; // Muestra el formulario
+        return "formulario11"; // Muestra el formulario en src/main/resources/templates/formulario11.html
     }
 
-    @PostMapping("/generar-acta")
+    @PostMapping("/generar-acta2")
     public ResponseEntity<byte[]> generarActa(
             @RequestParam("nombreEquipo") String nombreEquipo,
             @RequestParam("numeroSerie") String numeroSerie,
@@ -45,14 +41,12 @@ public class ActaController {
             @RequestParam("mes") String mes,
             @RequestParam("anio") String anio
     ) {
-        try {
-            // Ruta al archivo de plantilla (puedes modificar esta ruta)
-            FileInputStream fis = new FileInputStream("src/main/resources/templates/acta_template.docx");
+        try (FileInputStream fis = new FileInputStream("src/main/resources/templates/acta_template2.docx");
+             ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
 
-            // Cargar la plantilla de Word
             XWPFDocument documento = new XWPFDocument(fis);
-            
-            // Reemplazar los campos (placeholders) por los datos proporcionados
+
+            // Reemplazar los marcadores con los datos del formulario
             for (XWPFParagraph parrafo : documento.getParagraphs()) {
                 for (var run : parrafo.getRuns()) {
                     String texto = run.getText(0);
@@ -75,22 +69,18 @@ public class ActaController {
                 }
             }
 
-            // Convertir el documento a bytes para ser descargado
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
             documento.write(baos);
-            documento.close();
 
             // Configurar la respuesta HTTP
             HttpHeaders headers = new HttpHeaders();
-            headers.setContentDispositionFormData("attachment", "TI-F-02 COMPROMISO, ENTREGA Y DEVOLUCION EQUIPO DE COMPUTO.docx");
+            headers.setContentDispositionFormData("attachment", "TI-F-11_PRÉSTAMO_Y_DEVOLUCIÓN_DE_EQUIPOS_TECNOLÓGICOS.docx");
             headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
 
             return new ResponseEntity<>(baos.toByteArray(), headers, HttpStatus.OK);
-           
+
         } catch (IOException e) {
+            e.printStackTrace(); // Registrar el error
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
-
-

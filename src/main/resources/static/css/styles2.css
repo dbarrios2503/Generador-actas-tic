@@ -1,0 +1,65 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    text-align: center;
+    background-image: url("Imagen1.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0; /* Elimina margen por defecto */
+    padding: 0; /* Elimina padding por defecto */
+}
+
+h1 {
+    color: #180987;
+    font-size: 2.5rem; /* Tamaño responsivo */
+    margin-bottom: 1rem; 
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Espacio entre botones */
+}
+
+.acta-button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #180987;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.acta-button:hover {
+    background-color: #0f065e;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    body {
+        background-color: #f0f0f0; /* Cambia el fondo para pantallas pequeñas */
+    }
+
+    h1 {
+        font-size: 2rem; /* Reduce el tamaño del título */
+    }
+
+    .acta-button {
+        font-size: 0.9rem; /* Reduce el tamaño de los botones */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem; /* Reduce más el tamaño del título */
+    }
+
+    .acta-button {
+        font-size: 0.8rem; /* Reduce más el tamaño de los botones */
+    }
+}

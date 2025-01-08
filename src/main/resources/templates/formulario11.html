@@ -3,14 +3,13 @@
 <head>
     <title>Formulario de Acta</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    <link rel="shortcut icon" href="../static/css/Logo impresora.png">
-</head>
+    <link rel="shortcut icon" href="../static/css/Logoimpresora.png">
 <body>
 
-    <h1>TI-F-02 COMPROMISO, ENTREGA Y DEVOLUCION EQUIPO DE COMPUTO</h1>
+    <h1>TI-F-11 PRÉSTAMO Y DEVOLUCIÓN DE EQUIPOS TECNOLÓGICOS </h1>
 
     <div class="container">
-        <form action="#" th:action="@{/generar-acta}" method="post" onsubmit="window.location.href='/actagenerada'; return true;">
+        <form action="#" th:action="@{/tif11/generar-acta2}" method="post" onsubmit="window.location.href='/TIF11actaController'; return true;">
             <div class="form-group">
                 <label for="nombreEquipo">Nombre del Equipo:</label>
                 <input type="text" id="nombreEquipo" name="nombreEquipo" th:value="${nombreEquipo}" required>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Actas</title>
+    <link rel="stylesheet" th:href="@{/css/styles2.css}">
+    <link rel="shortcut icon" href="../static/css/Logoimpresora.png">
+
+</head>
+<body>
+    <header>
+        <h1>GENERADOR DE ACTAS CONVIVENTIA TIC </h1>
+    </header>
+    <main>
+        <h2>¿QUÉ ACTA NECESITAS GENERAR?</h2>
+        <div class="button-container">
+            <!-- Botón para generar el acta TI-F-02 -->
+            <button class="acta-button" th:onclick="'location.href=\'' + @{/tif02/} + '\''">
+                TI-F-02 COMPROMISO, ENTREGA Y DEVOLUCIÓN EQUIPO DE CÓMPUTO
+            </button>
+            <!-- Botón para generar el acta TI-F-11 -->
+            <button class="acta-button" th:onclick="'location.href=\'' + @{/tif11/} + '\''">
+                TI-F-11 PRÉSTAMO Y DEVOLUCIÓN DE EQUIPOS TECNOLÓGICOS
+            </button>
+        </div>
+    </main>
+</body>
+</html>
